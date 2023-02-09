@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    container_name: teste_web
+    image: ertfly/php7.4.9-apache-buster
+    build: .
+    restart: always
+    ports:
+      - '8081:80'
+    volumes:
+      - ./:/app/public
+    networks:
+      - dev-net
+      
+networks:
+  dev-net:
+    external: true
